@@ -1,5 +1,5 @@
-check process sphinx_<%= @app_name %>_9312
-  with pidfile /var/run/sphinx/<%= @app_name %>.pid
-  start program = "/engineyard/bin/<%= @flavor %>_searchd <%= @app_name %> start <%= @env %>" as uid <%= @user %> and gid <%= @user %> with timeout 90 seconds
-  stop program = "/engineyard/bin/<%= @flavor %>_searchd <%= @app_name %> stop <%= @env %>" as uid <%= @user %> and gid <%= @user %> with timeout 90 seconds
+check process sphinx_<%= @app_name %>
+  with pidfile <%= @pid_file %>
+  start program = "/usr/bin/searchd --pidfile --config /data/<%= @app_name %>/current/config/<%= @environment %>.sphinx.conf" as uid <%= @user %> and gid <%= @user %>
+  stop program = "/usr/bin/searchd --stopwait --config /data/<%= @app_name %>/current/config/<%= @environment %>.sphinx.conf" as uid <%= @user %> and gid <%= @user %>
   group sphinx_<%= @app_name %>

@@ -5,7 +5,7 @@
 #end
 
 # uncomment to turn on thinking sphinx/ultra sphinx. Remember to edit cookbooks/sphinx/recipes/default.rb first!
-# include_recipe "sphinx"
+include_recipe "sphinx"
 
 # uncomment to use the collectd recipe. See cookbooks/collectd/readme.md for documentation.
 # include_recipe "collectd"
